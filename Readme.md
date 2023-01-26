@@ -20,7 +20,7 @@ This is designed using Express JS as backend and React is used as frontend.
 
 ## Screenshot
 
-![image](https://github.com/navneetkumar22/crud_app_fetchApi/blob/main/Screenshot.png?raw=true)
+![image](https://github.com/navneetkumar22/crud_express_react/blob/main/Screenshot.png?raw=true)
 
 
 <br>
