@@ -26,7 +26,7 @@ export const UserList = () => {
         if (!userName || !userEmail) {
             alert("Name and Email both are required");
         } else {
-            const resp = await axios.put(`${serverUrl}/editUser/${id}`, { name: userName, email: userEmail });
+            await axios.put(`${serverUrl}/editUser/${id}`, { name: userName, email: userEmail });
         }
     }
 
