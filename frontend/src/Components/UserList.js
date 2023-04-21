@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
+const serverUrl = "https://crud-app-5tyu.onrender.com";
 
 export const UserList = () => {
     const [userData, setUserData] = useState("");
 
     const fetchUsersData = async () => {
-        const resp = await axios.get("/getUsers");
+        const resp = await axios.get(`${serverUrl}/getUsers`);
 
         //if no user is there - dont set the value
         if (resp.data.users.length > 0) {
@@ -25,13 +26,13 @@ export const UserList = () => {
         if (!userName || !userEmail) {
             alert("Name and Email both are required");
         } else {
-            const resp = await axios.put(`/editUser/${id}`, { name: userName, email: userEmail });
+            const resp = await axios.put(`${serverUrl}/editUser/${id}`, { name: userName, email: userEmail });
         }
     }
 
     //Delete the user
     const handleDelete = async (userId) => {
-        const resp = await axios.delete(`/deleteUser/${userId}`);
+        const resp = await axios.delete(`${serverUrl}/deleteUser/${userId}`);
         console.log(resp);
     }
 
@@ -54,8 +55,8 @@ export const UserList = () => {
                                 <tr className="userview">
                                     <td>{user.name}</td>
                                     <td>{user.email}</td>
-                                    <td><button className="edit-btn" onClick={() => {handleEdit(user._id)}}>Edit</button></td>
-                                    <td><button className="delete-btn" onClick={() => {handleDelete(user._id)}}>Delete</button></td>
+                                    <td><button className="edit-btn" onClick={() => { handleEdit(user._id) }}>Edit</button></td>
+                                    <td><button className="delete-btn" onClick={() => { handleDelete(user._id) }}>Delete</button></td>
                                 </tr>
                             ))}
                         </tbody>

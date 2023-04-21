@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from "axios";
+const serverUrl = "https://crud-app-5tyu.onrender.com";
 
 export const Form = () => {
     // to store form data - useStates
@@ -9,8 +10,8 @@ export const Form = () => {
     //function to send the data
     const submitData = async () => {
         const data = { name: userName, email: userEmail }
-        
-        await axios.post("/create", data)
+
+        await axios.post(`${serverUrl}/create`, data)
     }
 
     const handleSubmit = (event) => {
@@ -28,8 +29,8 @@ export const Form = () => {
                 <h1>CRUD App - React + Express</h1>
                 <section className="form-input">
                     <form onSubmit={handleSubmit}>
-                        <input type="text" id="name" name='name' placeholder="Enter your name" value={userName} onChange={(event) => {setUserName(event.target.value);}}/>
-                        <input type="email" id="email" name='email' placeholder="Enter your email" value={userEmail} onChange={(event) => {setUserEmail(event.target.value);}} />
+                        <input type="text" id="name" name='name' placeholder="Enter your name" value={userName} onChange={(event) => { setUserName(event.target.value); }} />
+                        <input type="email" id="email" name='email' placeholder="Enter your email" value={userEmail} onChange={(event) => { setUserEmail(event.target.value); }} />
                         <button id="btn" type='submit'>Create User</button>
                     </form>
                 </section>
